@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang='he' dir='rtl'><head><meta charset='UTF-8'><title>Quiz</title><style>body{font-family:Arial;background:#111827;color:#fff;max-width:900px;margin:auto;padding:20px}.q{background:#1f2937;padding:20px;border-radius:12px}button{display:block;width:100%;margin:8px 0;padding:12px} .c{background:#16a34a}.w{background:#dc2626}</style></head><body><h1>🧬 Biology Quiz Topics 3-12</h1><div id='q'></div><button onclick='next()'>Next</button><script>
+const qs=[
+['מהי דיפוזיה פשוטה?',['עם ATP','מריכוז גבוה לנמוך ללא אנרגיה','מעבר מים בלבד','בליעת חלקיקים'],1,'דיפוזיה אינה דורשת ATP'],
+['מהי אוסמוזה?',['מעבר חלבונים','מעבר מים דרך קרום','מעבר גלוקוז','מעבר יונים'],1,'אוסמוזה=מעבר מים'],
+['מהו מעבר פעיל?',['עם ATP נגד מפל','ללא ATP','מעבר מים','דיפוזיה'],0,'מעבר פעיל דורש אנרגיה'],
+['מהו תפקיד הגרעין?',['ATP','שמירת DNA','פירוק פסולת','שומנים'],1,'הגרעין מכיל DNA'],
+['מהו תפקיד DNA?',['ATP','מידע גנטי','מים','חלבון'],1,'DNA אוגר מידע'],
+['באיזה שלב מוכפל DNA?',['G1','S','G2','M'],1,'שכפול ב-S'],
+['Helicase?',['מחבר DNA','פותח סליל DNA','יוצר ATP','RNA'],1,'פותח את הגדילים'],
+['DNA Polymerase?',['בונה DNA','מפרק DNA','יוצר חלבון','ATP'],0,'מוסיף נוקלאוטידים'],
+['מיטוזה?',['4 תאים','2 תאים זהים','RNA','תסיסה'],1,'שני תאי בת'],
+['שעתוק?',['DNA ל-RNA','RNA לחלבון','DNA ל-DNA','Protein'],0,'Transcription'],
+['תרגום?',['גרעין','ריבוזום','גולגי','ליזוזום'],1,'Translation בריבוזום'],
+['ATP?',['חלבון','מטבע האנרגיה','שומן','DNA'],1,'ATP=אנרגיה'],
+['גליקוליזה?',['מיטוכונדריה','ציטופלזמה','גרעין','ER'],1,'בציטופלזמה'],
+['פתוגן?',['תא','גורם מחלה','נוגדן','הורמון'],1,'Pathogen'],
+['נוגדן?',['תא','חלבון נגד אנטיגן','DNA','שומן'],1,'Antibody'],
+['מי מייצר נוגדנים?',['T','B','NK','מאקרופאג'],1,'B cells'],
+['NK?',['ATP','הורג תאים נגועים','נוגדנים','DNA'],1,'Natural Killer'],
+['IgG?',['הנפוץ בדם','אלרגיה','ריריות','ראשון'],0,'IgG'],
+['IgA?',['אלרגיה','ריריות','דם','עור'],1,'IgA'],
+['IgE?',['זיכרון','אלרגיה','DNA','ATP'],1,'IgE']
+];
+let i=0,s=0;
+function draw(){let x=qs[i],h='<div class=q><h2>'+(i+1)+'. '+x[0]+'</h2>';x[1].forEach((o,n)=>h+='<button onclick="ans('+n+')">'+String.fromCharCode(1488+n)+'. '+o+'</button>');h+='<div id=f></div></div>';document.getElementById('q').innerHTML=h;}
+function ans(n){let x=qs[i],f=document.getElementById('f');document.querySelectorAll('.q button').forEach((b,j)=>{b.disabled=true;if(j==x[2])b.className='c';if(j==n&&n!=x[2])b.className='w';});if(n==x[2]){s++;f.innerHTML='✅ '+x[3];}else f.innerHTML='❌ '+x[3];}
+function next(){if(i<qs.length-1){i++;draw();}else document.body.innerHTML='<h1>Finished</h1><h2>Score '+s+'/'+qs.length+'</h2>';}
+draw();
+</script></body></html>
